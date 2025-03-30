@@ -49,9 +49,32 @@
 					</ul>
 				</section>
 				<section>
-					<h2>Eclipse</h2>
-					<p>Under <a href="https://github.com/goa-systems/goa.systems.powershell" target="_blank">github.com/goa-systems/goa.systems.powershell</a> you can find an automated installer that will install Eclipse under</p>
-					<p style="font-family: monospace; background-color: #444;">%LOCALAPPDATA%\Programs\Eclipse</p>
+					<h2>Automated installers</h2>
+					<p>In the README.md in the repository <a href="https://github.com/goa-systems/goa.systems.powershell" target="_blank">github.com/goa-systems/goa.systems.powershell</a> you can find automated installers for Eclipse, Java and Gradle. They will install the tools in subdirectories under</p>
+					<p style="font-family: monospace; background-color: #444;">%LOCALAPPDATA%\Programs</p>
+					<p>Additionally enviornment variables are set. To use the installers simply copy the code block and paste it into PowerShell with [CRTL] + [V] (Right click paste does not work correctly).</p>
+				</section>
+				<section>
+					<h2>Environment variables</h2>
+					<p>The previous step installs the tools in the application directories and sets environment variables. They can be added to the PATH variable in the next step.</p>
+					<div>
+						<img src="media/nmdcqHRELp.png" alt="Settings" style="height: 8em;">
+						<img src="media/tBWibbQ1qt.png" alt="Settings" style="height: 8em;">
+					</div>
+				</section>
+				<section>
+					<h2>The PATH variable</h2>
+					<p>The PATH variable contains a list of directories which are considered if a command is executed somewhere on the system.</p>
+					<div>
+						<img src="media/KMkEMPRsyA.png" alt="Settings" style="height: 8em;">
+					</div>
+				</section>
+				<section>
+					<h2>Example</h2>
+					<p>The following example shows the Gradle command executed in a project directory.</p>
+					<div>
+						<img src="media/Wn8mVb7idr.png" alt="Settings" style="height: 8em;">
+					</div>
 				</section>
 				<section>
 					<h2>Spring Boot</h2>
