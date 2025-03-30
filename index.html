@@ -25,8 +25,9 @@
 					<ul>
 						<li>Working Spring Boot project</li>
 						<li>Basic understanding of Gradle</li>
+						<li>Basic understanding of the environment variables</li>
 						<li>Basic understanding of the PATH variable</li>
-						<li>Working principles of workspaces</li>
+						<li>Principles and usage of workspaces</li>
 						<li>Versioning of tooling</li>
 						<li>Tool setup without admin privileges</li>
 					</ul>
@@ -79,7 +80,60 @@
 				<section>
 					<h2>Spring Boot</h2>
 					<p>Open <a target="_blank" href="https://start.spring.io">Spring Initializr</a> and apply the following settings.</p>
-					<img src="media/dxac2yZzOv.png" alt="Settings" style="height: 10em;">
+					<img src="media/dxac2yZzOv.png" alt="Settings" style="height: 8em;">
+					<p>Download the project with "GENERATE".</p>
+				</section>
+				<section>
+					<h2>Workspaces</h2>
+					<ul>
+						<li>Allow handling of different project types. For example .NET, Java, PHP, etc.</li>
+						<li>Keeps software development projects in one place. For example:</li>
+						<li>%USERPROFILE%\workspaces\java</li>
+						<li>%USERPROFILE%\workspaces\dotnet</li>
+						<li>%USERPROFILE%\workspaces\vscode</li>
+					</ul>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Open/import and customize project
+						
+						Extract the downloaded zip file and edit `build.gradle.kts`:
+
+						Change
+						
+						```kotlin
+						java {
+							toolchain {
+								languageVersion = JavaLanguageVersion.of(21)
+							}
+						}
+						```
+						
+						to
+
+						```kotlin
+						java {
+							sourceCompatibility = JavaVersion.VERSION_21
+							targetCompatibility = JavaVersion.VERSION_21
+						}
+						```
+					</textarea>
+				</section>
+				<section>
+					<h2>Import in Eclipse</h2>
+					<p>To import the project in Eclipse use the following procedure.</p>
+					<div>
+						<img src="media/FZffshbqpG.png" alt="Settings" style="height: 8em;">
+						<img src="media/3VQBvTB50V.png" alt="Settings" style="height: 8em;">
+						<img src="media/0XZs5d7PVC.png" alt="Settings" style="height: 8em;">
+					</div>
+				</section>
+				<section>
+					<h2>Use project in Eclipse</h2>
+					<p>Start the application in Eclipse:</p>
+					<div>
+						<img src="media/gjdPNXBmkw.png" alt="Settings" style="height: 8em;">
+					</div>
 				</section>
 			</div>
 		</div>
