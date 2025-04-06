@@ -141,6 +141,87 @@
 					<p>Static resources, i.e. index.html, in <b>"src/main/resources/static"</b></p>
 					<p>Documentation for <a href="https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-requestmapping.html" target="_blank">mapping requests on docs.spring.io</a>.</p>
 				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## SonarQube integration
+
+						Extend the project with the code coverage generator plugin in `build.gradle.kts`:
+						
+						```kotlin
+						plugins {
+							jacoco
+						}
+
+						tasks.withType<Test> {
+							useJUnitPlatform()
+							finalizedBy(tasks.jacocoTestReport)
+						}
+
+						tasks.jacocoTestReport {
+							dependsOn(tasks.test)
+							reports {
+								xml.required = true
+							}
+						}
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Install Sonar Scanner locally
+
+						Get the Sonar Scanner from the [official site](https://docs.sonarsource.com/sonarqube-server/9.6/analyzing-source-code/scanners/sonarscanner/) and install it.
+						
+						Follow the same principles to make the command line tool `sonar-scanner` available on your machine. Hints:
+
+						* Extract archive to `%LOCALAPPDATA%\Programs\SonarScanner`
+						* Point `%SONARSCANNER_HOME%` to `%LOCALAPPDATA%\Programs\SonarScanner\sonar-scanner-7.0.2.4839-windows-x64`
+						* Add `%SONARSCANNER_HOME%\bin` to your `PATH` variable.
+
+					</textarea>
+				</section>
+				<section>
+					<h2>Validate Sonar Scanner</h2>
+					<img src="media/dBZOwecifJ.png" alt="Sonar Scanner">
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Use Sonar Scanner
+
+						The following command is not complete and needs adjustements to run.
+
+						```
+						sonar-scanner `
+						-D"sonar.host.url"=sonarqube.goa.systems `
+						-D"sonar.token"=sqp_f890380456fc166c7a52f8533b99e8ff9bae4577 `
+						-D"sonar.projectKey"=teamX `
+						-D"sonar.sources"=src/main `
+						-D"sonar.java.libraries"=build/libs `
+						-D"sonar.java.binaries"=build/classes `
+						-D"sonar.coverage.jacoco.xmlReportPaths"=build/reports/jacoco/test/jacocoTestReport.xml `
+						-D"sonar.junit.reportsPath"=build/test-results
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Run a SonarQube server
+
+						The easiest way to run a SonarQube server is to use the official Docker image:
+
+						```
+						docker run --name sonarqube-custom -p 9000:9000 sonarqube:10.6-community
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Pipeline integration
+
+						The previously shown command can also be used in a pipeline to scan the project during a build.
+
+					</textarea>
+				</section>
 			</div>
 		</div>
 
